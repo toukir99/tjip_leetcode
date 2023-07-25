@@ -3,24 +3,24 @@
   
 class Solution {
 public:
+    bool isCharacterOpeningBracket(char ch)
+    {
+        return ch=='(' || ch=='{' || ch=='[';
+    }
     bool isValid(string s) {
-        stack<char>stkParenthesis;
-        for(auto &str:s){
-            if(stkParenthesis.empty()){
-                stkParenthesis.push(str);
+        unordered_map<char,char>bracketMap{{')','('},{'}','{'},{']','['}};
+        stack<char>stk;
+        for(auto ch:s){
+            if(isCharacterOpeningBracket(ch)){
+                stk.push(ch);
             }
-            else if((stkParenthesis.top()=='(' && str==')')||(stkParenthesis.top()=='{' && str=='}')||(stkParenthesis.top()=='[' && str==']')){
-                stkParenthesis.pop();
-            }
-            else{
-                stkParenthesis.push(str);
-            }
+            else
+            {
+                if(stk.empty() || stk.top()!=bracketMap[ch])
+                    return false;
+                stk.pop();
+            }         
         }
-        if(stkParenthesis.empty()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return stk.empty();
     }
 };
