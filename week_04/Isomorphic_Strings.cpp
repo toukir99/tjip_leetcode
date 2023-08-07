@@ -1,5 +1,5 @@
-/tc: 0(n)
-//sc: 0(1)
+/tc: O(n)
+//sc: O(n)
 
 class Solution {
 public:
