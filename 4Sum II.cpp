@@ -1,5 +1,5 @@
-//tc:0(n^2)
-//sc:0(1)
+//tc:O(n^2)
+//sc:O(n^2)
 
 class Solution {
 public:
