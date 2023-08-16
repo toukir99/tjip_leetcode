@@ -1,3 +1,6 @@
+//tc: O(n)
+//sc: O(n)
+
 class Solution {
     private:
     bool isMirror(TreeNode* p,TreeNode* q) {
