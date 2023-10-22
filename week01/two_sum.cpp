@@ -1,16 +1,17 @@
+//tc: O(n)
+//sc: O(n)
+
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int,int>mp;
-         for(int i=0;i<nums.size();i++)
-         {
-            if(mp.count(target-nums[i]))
-            {
-                return {mp[target-nums[i]],i};
-                break;
+        unordered_map<int,int> seen;
+    
+        for(int i=0;i<nums.size();i++){
+            if(seen.find(target-nums[i])!=seen.end()){
+                return {seen[target-nums[i]],i};
             }
-            mp[nums[i]]=i;
-         }
-         return {-1,-1};
+            seen[nums[i]]=i;
+        }
+        return {};
     }
 };
